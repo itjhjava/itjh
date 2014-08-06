@@ -12,6 +12,7 @@
 		3DFCC94B19926FA200C34066 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DFCC94919926FA200C34066 /* Main.storyboard */; };
 		3DFCC94D19926FA200C34066 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DFCC94C19926FA200C34066 /* Images.xcassets */; };
 		3DFCC95919926FA200C34066 /* testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFCC95819926FA200C34066 /* testTests.swift */; };
+		3DFCC9631992705000C34066 /* File in Resources */ = {isa = PBXBuildFile; fileRef = 3DFCC9621992705000C34066 /* File */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		3DFCC95219926FA200C34066 /* testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DFCC95719926FA200C34066 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DFCC95819926FA200C34066 /* testTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testTests.swift; sourceTree = "<group>"; };
+		3DFCC9621992705000C34066 /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				3DFCC94519926FA200C34066 /* AppDelegate.swift */,
 				3DFCC94719926FA200C34066 /* ViewController.swift */,
 				3DFCC94919926FA200C34066 /* Main.storyboard */,
+				3DFCC9621992705000C34066 /* File */,
 				3DFCC94C19926FA200C34066 /* Images.xcassets */,
 				3DFCC94319926FA200C34066 /* Supporting Files */,
 			);
@@ -191,6 +194,7 @@
 			files = (
 				3DFCC94B19926FA200C34066 /* Main.storyboard in Resources */,
 				3DFCC94D19926FA200C34066 /* Images.xcassets in Resources */,
+				3DFCC9631992705000C34066 /* File in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
