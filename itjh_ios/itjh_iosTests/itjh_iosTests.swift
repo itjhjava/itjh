@@ -1,6 +1,6 @@
 //
-//  testeeeeTests.swift
-//  testeeeeTests
+//  itjh_iosTests.swift
+//  itjh_iosTests
 //
 //  Created by LijunSong on 14/8/6.
 //  Copyright (c) 2014年 itjh. All rights reserved.
@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-class testeeeeTests: XCTestCase {
+class itjh_iosTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
