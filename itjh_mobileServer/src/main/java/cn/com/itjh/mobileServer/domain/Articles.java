@@ -95,5 +95,31 @@ public class Articles {
     public void setTitle(String title) {
         this.title = title;
     }
+
+	@Override
+	public String toString() {
+		return "Articles [id=" + id + ", content=" + content + ", title="
+				+ title + ", author=" + author + ", postDate=" + postDate
+				+ ", source=" + source + ", popularity=" + popularity
+				+ ", comments=" + comments + "]";
+	}
+
+	public Articles(String id, String content, String title, String author,
+			String postDate, String source, String popularity, String comments) {
+		super();
+		this.id = id;
+		this.content = content;
+		this.title = title;
+		this.author = author;
+		this.postDate = postDate;
+		this.source = source;
+		this.popularity = popularity;
+		this.comments = comments;
+	}
+
+	public Articles() {
+		super();
+	}
     
+	
 }

@@ -1,6 +1,9 @@
 package cn.com.itjh.mobileServer.server;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 import javax.annotation.Resource;
@@ -48,7 +51,11 @@ public class ArticlesServer {
 
         List<Articles> articles = articlesService.getArticlesByProgrammingInsights();
         String articlesJson = gson.toJson(articles);
-
+  
+//        Map<String, List> map = new HashMap<String, List>();
+//        map.put("articles", articles);
+//        String articlesJson = gson.toJson(map);
+System.out.println(new Date() + "请求	");
         return articlesJson;
 
     }

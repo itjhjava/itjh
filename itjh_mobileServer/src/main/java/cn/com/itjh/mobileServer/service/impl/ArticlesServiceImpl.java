@@ -1,5 +1,6 @@
 package cn.com.itjh.mobileServer.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -33,16 +34,21 @@ public class ArticlesServiceImpl implements ArticlesService {
     public List<Articles> getArticlesByProgrammingInsights() {
         
         List<Articles>  articles =  ArticlesDao.getArticlesByProgrammingInsights();
+        List<Articles>  articles1 = new ArrayList<Articles>();
         
-        for (Articles articles2 : articles) {
-            articles2.setAuthor("江湖");
-            articles2.setPostDate(articles2.getPostDate().substring(0, 10));
-            articles2.setContent((articles2.getContent().substring(200, 300)));
-            System.out.println(articles2.getPostDate().substring(0, 10));
-            System.out.println(articles2.getTitle());
-        }
-        
-        return articles;
+//        for (Articles articles2 : articles) {
+//            articles2.setAuthor("江湖");
+//            articles2.setPostDate(articles2.getPostDate().substring(0, 10));
+//            articles2.setContent((articles2.getContent().substring(200, 300)));
+//            System.out.println(articles2.getPostDate().substring(0, 10));
+//            System.out.println(articles2.getTitle());
+//        }
+        for (int i = 0; i < 50; i++) {
+        	articles.get(i).setAuthor("江湖");
+        	articles.get(i).setContent("hh" + i);
+        	articles1.add(articles.get(i));
+		}
+        return articles1;
     }
 
 }

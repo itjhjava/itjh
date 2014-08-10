@@ -12,7 +12,7 @@
 		<result column="popularity" property="popularity" />
 		<result column="comments" property="comments" />
 	
-	</resultMap>
+	</resultMap> 
 	
 	<select id="getArticlesByProgrammingInsights" resultMap="ArticlesResultMap">
 		SELECT wpp.id as id, wpp.`post_author` AS author, wpp.`post_content` AS content,wpp.`post_title` AS title,wpp.`post_date` AS postDate FROM wp_posts wpp WHERE wpp.`ID` IN (SELECT wptr.`object_id` FROM wp_terms wpt,wp_term_relationships wptr,wp_term_taxonomy wptt

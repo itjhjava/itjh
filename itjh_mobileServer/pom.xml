@@ -10,7 +10,7 @@
 	<properties>
 		<org.slf4j-version>1.7.2</org.slf4j-version>
 		<!-- spring版本号 -->
-		<spring.version>4.0.2.RELEASE</spring.version>
+		<spring.version>3.0.2.RELEASE</spring.version>
 	</properties>
 	<dependencies>
 		<!-- Jersey -->
