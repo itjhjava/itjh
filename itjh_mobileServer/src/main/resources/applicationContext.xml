@@ -17,6 +17,7 @@
 			<list>
 				<!-- 引入jdbc配置文件 -->
 				<value>classpath:jdbc.properties</value>
+				<value>classpath:memcached.properties</value>
 			</list>
 		</property>
 	</bean>
@@ -34,14 +35,11 @@
 						<value>${memcached.server1.port}</value>
 					</constructor-arg>
 				</bean>
-				<!-- <bean class="java.net.InetSocketAddress"> <constructor-arg> <value>${memcached.server2.host}</value> 
-					</constructor-arg> <constructor-arg> <value>${memcached.server2.port}</value> 
-					</constructor-arg> </bean> -->
 			</list>
 		</constructor-arg>
 		<constructor-arg>
 			<list>
-				<value>${memcached.server2.weight}</value>
+				<value>${memcached.server1.weight}</value>
 				<!-- <value>${memcached.server2.weight}</value> -->
 			</list>
 		</constructor-arg>

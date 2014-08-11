@@ -5,7 +5,9 @@ import java.util.concurrent.ExecutionException;
 
 import javax.annotation.Resource;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -45,7 +47,7 @@ public class ArticlesServer {
 
     @Resource
     private MemcachedClient memcachedClient;
-    
+
     Gson gson = new Gson();
 
     /**
@@ -75,18 +77,18 @@ public class ArticlesServer {
         String articlesJson = null;
         try {
             logger.info("开始获取“编程感悟”文章列表");
-            //从缓存中获取编程的json数据
+            // 从缓存中获取编程的json数据
             String memArticlesJson = memcachedClient.get("articles_bcgw");
             if ("".equals(memArticlesJson) || null == memArticlesJson) {
                 List<Articles> articles = articlesService.getArticlesByProgrammingInsights();
                 articlesJson = gson.toJson(articles);
-                //把编程感悟的文章列表json存放到memcached中，缓存时间为6个小时
+                // 把编程感悟的文章列表json存放到memcached中，缓存时间为6个小时
                 if (null != articles && articles.size() != 0) {
                     memcachedClient.set("articles_bcgw", 60 * 60 * 6, articlesJson);
                     logger.info("编程感悟列表成功缓存到memcached中,缓存内容是：\n");
-                    logger.info(articlesJson);
+                    //logger.info(articlesJson);
                 }
-            }else{
+            } else {
                 logger.info("从缓存中获取“编程感悟”文章列表");
                 return memArticlesJson;
             }
@@ -98,4 +100,56 @@ public class ArticlesServer {
         return articlesJson;
     }
 
+    /**
+     * 
+     * 获取单个文章. <br>
+     * 获取单个文章
+     * 
+     * @Copyright itjh
+     * @Project
+     * @param artticsId
+     *            文章ID
+     * @param termId
+     *            分类ID
+     * @return
+     * @return String
+     * @throws
+     * @author 宋立君
+     * @date 2014年8月11日 下午3:46:32
+     * @Version
+     * @JDK version used 8.0
+     * @Modification history none
+     * @Modified by none
+     */
+    @POST
+    @Produces("application/json")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @Path("getArticlesByArtticsId")
+    public String getArticlesByArtticsId(@FormParam(value = "termId") String termId,@FormParam(value = "artticsId") String artticsId) {
+
+        logger.info("文章分类ID:" + termId);
+        logger.info("文章ID:" + artticsId);
+        String articlesJson = "";
+        try {
+            
+            String articlesJsonMen = memcachedClient.get(termId+artticsId);
+            if ("".equals(articlesJsonMen) || null == articlesJsonMen) {
+                Articles articles = articlesService.getArticlesByArtticsId(termId,artticsId);
+                articlesJson = gson.toJson(articles);
+                // 把编程感悟的文章列表json存放到memcached中，缓存时间为6个小时
+                if (null != articles) {
+                    memcachedClient.set(termId+artticsId, 0, articlesJson);
+                    logger.info("编程感悟列表成功缓存到memcached中");
+                    //logger.info("缓存内容是：\n"+articlesJson);
+                }
+            } else {
+                logger.info("从缓存中获取“编程感悟”文章列表");
+                return articlesJsonMen;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return articlesJson;
+        }
+        return articlesJson;
+    }
 }

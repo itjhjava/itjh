@@ -17,7 +17,45 @@
 			<list>
 				<!-- 引入jdbc配置文件 -->
 				<value>classpath:jdbc.properties</value>
+				<value>classpath:memcached.properties</value>
 			</list>
 		</property>
 	</bean>
+	
+	
+	<!-- spring管理memcachedClient -->
+	<bean id="memcachedClientBuilder" class="net.rubyeye.xmemcached.XMemcachedClientBuilder">
+		<constructor-arg>
+			<list>
+				<bean class="java.net.InetSocketAddress">
+					<constructor-arg>
+						<value>${memcached.server1.host}</value>
+					</constructor-arg>
+					<constructor-arg>
+						<value>${memcached.server1.port}</value>
+					</constructor-arg>
+				</bean>
+			</list>
+		</constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>${memcached.server1.weight}</value>
+				<!-- <value>${memcached.server2.weight}</value> -->
+			</list>
+		</constructor-arg>
+		<property name="connectionPoolSize" value="${memcached.connectionPoolSize}" />
+		<property name="commandFactory">
+			<bean class="net.rubyeye.xmemcached.command.TextCommandFactory"></bean>
+		</property>
+		<property name="sessionLocator">
+			<bean class="net.rubyeye.xmemcached.impl.KetamaMemcachedSessionLocator"></bean>
+		</property>
+		<property name="transcoder">
+			<bean class="net.rubyeye.xmemcached.transcoders.SerializingTranscoder" />
+		</property>
+	</bean>
+	<bean id="memcachedClient" factory-bean="memcachedClientBuilder"
+		factory-method="build" destroy-method="shutdown" />
+	
+	
 </beans>

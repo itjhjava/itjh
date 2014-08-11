@@ -1,7 +1,9 @@
 package cn.com.itjh.mobileServer.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -49,6 +51,16 @@ public class ArticlesServiceImpl implements ArticlesService {
         	articles1.add(articles.get(i));
 		}
         return articles1;
+    }
+
+    @Override
+    public Articles getArticlesByArtticsId(String termId,String artticsId) {
+        
+        Map<String, String> artMap = new HashMap<String, String>();
+        artMap.put("termId", termId);
+        artMap.put("artticsId", artticsId);
+        Articles articles = ArticlesDao.getArticlesByArtticsId(artMap);
+        return articles;
     }
 
 }

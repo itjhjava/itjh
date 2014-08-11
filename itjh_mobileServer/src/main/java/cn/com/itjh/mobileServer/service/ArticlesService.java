@@ -37,4 +37,23 @@ public interface ArticlesService {
      * @Modified by none
      */
     List<Articles> getArticlesByProgrammingInsights();
+
+    /**
+     * 
+    * 获取单个文章.
+    * <br>根据文章ID获取文章详情
+    * @Copyright 
+    * @Project
+    * @param artticsId 文章ID
+    * @return
+    * @return Articles 文章对象
+    * @throws
+    * @author 宋立君
+    * @date 2014年8月11日 下午3:49:25
+    * @Version 
+    * @JDK version used 8.0
+    * @Modification history none
+    * @Modified by none
+     */
+    Articles getArticlesByArtticsId(String termId,String artticsId);
 }
