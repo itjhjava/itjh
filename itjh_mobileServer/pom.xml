@@ -4,7 +4,7 @@
 	<groupId>cn.com.itjh</groupId>
 	<artifactId>itjh_mobileServer</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>itjh_mobileServer Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<properties>
