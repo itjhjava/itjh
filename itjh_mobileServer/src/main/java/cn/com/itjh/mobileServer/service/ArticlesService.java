@@ -55,5 +55,5 @@ public interface ArticlesService {
     * @Modification history none
     * @Modified by none
      */
-    Articles getArticlesByArtticsId(String termId,String artticsId);
+    Articles getArticlesByArtticsId(String artticsId);
 }

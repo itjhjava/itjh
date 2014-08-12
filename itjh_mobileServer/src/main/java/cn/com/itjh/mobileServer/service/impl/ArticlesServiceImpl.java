@@ -54,12 +54,8 @@ public class ArticlesServiceImpl implements ArticlesService {
     }
 
     @Override
-    public Articles getArticlesByArtticsId(String termId,String artticsId) {
-        
-        Map<String, String> artMap = new HashMap<String, String>();
-        artMap.put("termId", termId);
-        artMap.put("artticsId", artticsId);
-        Articles articles = ArticlesDao.getArticlesByArtticsId(artMap);
+    public Articles getArticlesByArtticsId(String artticsId) {
+        Articles articles = ArticlesDao.getArticlesByArtticsId(artticsId);
         return articles;
     }
 

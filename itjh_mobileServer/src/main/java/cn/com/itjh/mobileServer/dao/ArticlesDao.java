@@ -40,7 +40,6 @@ public interface ArticlesDao {
      * @Modified by none
      */
     List<Articles> getArticlesByProgrammingInsights();
-
     /**
      * 
      * 获取单个文章. <br>
@@ -60,5 +59,5 @@ public interface ArticlesDao {
      * @Modification history none
      * @Modified by none
      */
-    Articles getArticlesByArtticsId(Map<String, String> artMap);
+    Articles getArticlesByArtticsId(String artticsId);
 }

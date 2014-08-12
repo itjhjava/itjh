@@ -5,9 +5,7 @@ import java.util.concurrent.ExecutionException;
 
 import javax.annotation.Resource;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -87,7 +85,7 @@ public class ArticlesServer {
                 if (null != articles && articles.size() != 0) {
                     memcachedClient.set("articles_bcgw", 60 * 60 * 6, articlesJson);
                     logger.info("编程感悟列表成功缓存到memcached中,缓存内容是：\n");
-                    //logger.info(articlesJson);
+                    // logger.info(articlesJson);
                 }
             } else {
                 logger.info("从缓存中获取“编程感悟”文章列表");
@@ -104,14 +102,12 @@ public class ArticlesServer {
     /**
      * 
      * 获取单个文章. <br>
-     * 获取单个文章
+     * 根据文章ID换取文章详情
      * 
      * @Copyright itjh
      * @Project
      * @param artticsId
      *            文章ID
-     * @param termId
-     *            分类ID
      * @return
      * @return String
      * @throws
@@ -124,23 +120,20 @@ public class ArticlesServer {
      */
     @GET
     @Produces("application/json")
-    @Path("getArticlesByArtticsId/{termId}/{artticsId}")
-    public String getArticlesByArtticsId(@PathParam(value="termId")String termId,@PathParam(value="termId")String artticsId) {
-    	
-        logger.info("文章分类ID:" + termId);
+    @Path("getArticlesByArtticsId/{artticsId}")
+    public String getArticlesByArtticsId(@PathParam(value = "artticsId") String artticsId) {
         logger.info("文章ID:" + artticsId);
         String articlesJson = "";
         try {
-            
-            String articlesJsonMen = memcachedClient.get(termId+artticsId);
+            String articlesJsonMen = memcachedClient.get(artticsId);
             if ("".equals(articlesJsonMen) || null == articlesJsonMen) {
-                Articles articles = articlesService.getArticlesByArtticsId(termId,artticsId);
+                Articles articles = articlesService.getArticlesByArtticsId(artticsId);
                 articlesJson = gson.toJson(articles);
                 // 把编程感悟的文章列表json存放到memcached中，缓存时间为6个小时
                 if (null != articles) {
-                    memcachedClient.set(termId+artticsId, 0, articlesJson);
+                    memcachedClient.set(artticsId, 0, articlesJson);
                     logger.info("编程感悟列表成功缓存到memcached中");
-                    //logger.info("缓存内容是：\n"+articlesJson);
+                    // logger.info("缓存内容是：\n"+articlesJson);
                 }
             } else {
                 logger.info("从缓存中获取“编程感悟”文章列表");
