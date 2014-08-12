@@ -9,6 +9,7 @@ import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -121,12 +122,11 @@ public class ArticlesServer {
      * @Modification history none
      * @Modified by none
      */
-    @POST
+    @GET
     @Produces("application/json")
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    @Path("getArticlesByArtticsId")
-    public String getArticlesByArtticsId(@FormParam(value = "termId") String termId,@FormParam(value = "artticsId") String artticsId) {
-
+    @Path("getArticlesByArtticsId/{termId}/{artticsId}")
+    public String getArticlesByArtticsId(@PathParam(value="termId")String termId,@PathParam(value="termId")String artticsId) {
+    	
         logger.info("文章分类ID:" + termId);
         logger.info("文章ID:" + artticsId);
         String articlesJson = "";
