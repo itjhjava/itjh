@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>itjh_ios.xcscheme</key>
+		<key>itjh_swift.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3D1EE0041996CEED00C8209F</key>
+		<key>3DFF18991999AC4200DB191C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3D1EE0161996CEED00C8209F</key>
+		<key>3DFF18AB1999AC4200DB191C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

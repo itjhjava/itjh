@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  itjh_ios
+//  itjh_swift
 //
-//  Created by LijunSong on 14/8/9.
+//  Created by LijunSong on 14/8/12.
 //  Copyright (c) 2014年 itjh. All rights reserved.
 //
 

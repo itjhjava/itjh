@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3D1EE0041996CEED00C8209F"
-               BuildableName = "itjh_ios.app"
-               BlueprintName = "itjh_ios"
-               ReferencedContainer = "container:itjh_ios.xcodeproj">
+               BlueprintIdentifier = "3DFF18991999AC4200DB191C"
+               BuildableName = "itjh_swift.app"
+               BlueprintName = "itjh_swift"
+               ReferencedContainer = "container:itjh_swift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3D1EE0161996CEED00C8209F"
-               BuildableName = "itjh_iosTests.xctest"
-               BlueprintName = "itjh_iosTests"
-               ReferencedContainer = "container:itjh_ios.xcodeproj">
+               BlueprintIdentifier = "3DFF18AB1999AC4200DB191C"
+               BuildableName = "itjh_swiftTests.xctest"
+               BlueprintName = "itjh_swiftTests"
+               ReferencedContainer = "container:itjh_swift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -46,20 +46,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3D1EE0161996CEED00C8209F"
-               BuildableName = "itjh_iosTests.xctest"
-               BlueprintName = "itjh_iosTests"
-               ReferencedContainer = "container:itjh_ios.xcodeproj">
+               BlueprintIdentifier = "3DFF18AB1999AC4200DB191C"
+               BuildableName = "itjh_swiftTests.xctest"
+               BlueprintName = "itjh_swiftTests"
+               ReferencedContainer = "container:itjh_swift.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3D1EE0041996CEED00C8209F"
-            BuildableName = "itjh_ios.app"
-            BlueprintName = "itjh_ios"
-            ReferencedContainer = "container:itjh_ios.xcodeproj">
+            BlueprintIdentifier = "3DFF18991999AC4200DB191C"
+            BuildableName = "itjh_swift.app"
+            BlueprintName = "itjh_swift"
+            ReferencedContainer = "container:itjh_swift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -75,10 +75,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3D1EE0041996CEED00C8209F"
-            BuildableName = "itjh_ios.app"
-            BlueprintName = "itjh_ios"
-            ReferencedContainer = "container:itjh_ios.xcodeproj">
+            BlueprintIdentifier = "3DFF18991999AC4200DB191C"
+            BuildableName = "itjh_swift.app"
+            BlueprintName = "itjh_swift"
+            ReferencedContainer = "container:itjh_swift.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -93,10 +93,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3D1EE0041996CEED00C8209F"
-            BuildableName = "itjh_ios.app"
-            BlueprintName = "itjh_ios"
-            ReferencedContainer = "container:itjh_ios.xcodeproj">
+            BlueprintIdentifier = "3DFF18991999AC4200DB191C"
+            BuildableName = "itjh_swift.app"
+            BlueprintName = "itjh_swift"
+            ReferencedContainer = "container:itjh_swift.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
