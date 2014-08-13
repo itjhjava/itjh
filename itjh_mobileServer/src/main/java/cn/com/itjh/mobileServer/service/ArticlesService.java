@@ -24,6 +24,11 @@ public interface ArticlesService {
      * 获取文章. <br>
      * 根据’编程感悟‘分类获取文章
      * 
+     * @param showNum
+     *            显示条数
+     * @param pageNum
+     *            当前页数
+     * 
      * @Copyright itjh
      * @Project
      * @return
@@ -36,24 +41,47 @@ public interface ArticlesService {
      * @Modification history none
      * @Modified by none
      */
-    List<Articles> getArticlesByProgrammingInsights();
+    List<Articles> getArticlesByProgrammingInsights(int pageNum, int showNum);
 
     /**
      * 
-    * 获取单个文章.
-    * <br>根据文章ID获取文章详情
-    * @Copyright 
-    * @Project
-    * @param artticsId 文章ID
-    * @return
-    * @return Articles 文章对象
-    * @throws
-    * @author 宋立君
-    * @date 2014年8月11日 下午3:49:25
-    * @Version 
-    * @JDK version used 8.0
-    * @Modification history none
-    * @Modified by none
+     * 获取单个文章. <br>
+     * 根据文章ID获取文章详情
+     * 
+     * @Copyright
+     * @Project
+     * @param artticsId
+     *            文章ID
+     * @return
+     * @return Articles 文章对象
+     * @throws
+     * @author 宋立君
+     * @date 2014年8月11日 下午3:49:25
+     * @Version
+     * @JDK version used 8.0
+     * @Modification history none
+     * @Modified by none
      */
     Articles getArticlesByArtticsId(String artticsId);
+
+    /**
+     * 
+     * 获取移动开发的文章列表. <br>
+     * 获取移动开发的文章列表
+     * 
+     * @param showNum
+     * @param pageNum
+     * @Copyright itjh
+     * @Project
+     * @return
+     * @return List<Articles>
+     * @throws
+     * @author 宋立君
+     * @date 2014年8月13日 下午2:23:21
+     * @Version
+     * @JDK version used 8.0
+     * @Modification history none
+     * @Modified by none
+     */
+    List<Articles> getArticlesByMoblieDevelopment(int pageNum, int showNum);
 }
