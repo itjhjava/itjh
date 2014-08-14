@@ -76,24 +76,30 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!){
         
         
-        var articlesInfo:ArticlesInfoController = self.storyboard.instantiateViewControllerWithIdentifier("articlesInfo") as ArticlesInfoController
-        
-        articlesInfo.title = (tableData?[indexPath.row]["title"].string)!
+//        var articlesInfo:ArticlesInfoController = self.storyboard.instantiateViewControllerWithIdentifier("articlesInfo") as ArticlesInfoController
+//        
+//        articlesInfo.title = (tableData?[indexPath.row]["title"].string)!
+//        
+//        let artId = (tableData?[indexPath.row]["id"].string)!
+//        
+//        let urlStr:String="http://203.195.161.238:8080/itjh_mobileServer/ArticlesServer/getArticlesByArtticsId/\((artId as NSString).intValue)"
+//        
+//        println(urlStr)
+//        
+//        var url: NSURL = NSURL(string: urlStr)
+//        var data=NSData.dataWithContentsOfURL(url, options: NSDataReadingOptions.DataReadingMappedAlways, error: nil)
+//        
+//        var json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: nil)
+//        
+//        articlesInfo.artContentStr = json.objectForKey("content") as NSString
         
         let artId = (tableData?[indexPath.row]["id"].string)!
         
-        let urlStr:String="http://203.195.161.238:8080/itjh_mobileServer/ArticlesServer/getArticlesByArtticsId/\((artId as NSString).intValue)"
+        var webView=WebViewController()
+        webView.artID = artId
         
-        println(urlStr)
         
-        var url: NSURL = NSURL(string: urlStr)
-        var data=NSData.dataWithContentsOfURL(url, options: NSDataReadingOptions.DataReadingMappedAlways, error: nil)
-        
-        var json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: nil)
-        
-        articlesInfo.artContentStr = json.objectForKey("content") as NSString
-        
-        self.navigationController.pushViewController(articlesInfo,animated:true)
+        self.navigationController.pushViewController(webView,animated:true)
         
         
     }

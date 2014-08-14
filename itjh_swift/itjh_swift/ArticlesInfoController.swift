@@ -27,8 +27,8 @@ class ArticlesInfoController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-           
-        artContent?.text = artContentStr
+        artContent.sizeToFit()
+        artContent?.text = artContentStr    
     }
 
     override func didReceiveMemoryWarning() {
