@@ -49,20 +49,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int{
-      
+        
         return (tableData?.array?.count)!
     }
     
     
     func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell!{
         
-//        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "mycell") 
-//
-//        cell.textLabel.text = tableData?[indexPath.row]["title"].string
-//        
-//        cell.detailTextLabel.text = tableData?[indexPath.row]["author"].string
-//        
-//         var cell = tableView?.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? MyCell
+        //        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "mycell")
+        //
+        //        cell.textLabel.text = tableData?[indexPath.row]["title"].string
+        //
+        //        cell.detailTextLabel.text = tableData?[indexPath.row]["author"].string
+        //
+        //         var cell = tableView?.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? MyCell
         
         var cell:MyCell = tableView.dequeueReusableCellWithIdentifier(mycell) as MyCell
         var title = tableData?[indexPath.row]["title"].string
@@ -75,7 +75,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!){
         
-      
+        
         var articlesInfo:ArticlesInfoController = self.storyboard.instantiateViewControllerWithIdentifier("articlesInfo") as ArticlesInfoController
         
         articlesInfo.title = (tableData?[indexPath.row]["title"].string)!
@@ -94,12 +94,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         articlesInfo.artContentStr = json.objectForKey("content") as NSString
         
         self.navigationController.pushViewController(articlesInfo,animated:true)
-       
+        
         
     }
     
-   
-  
+    
+    
     
     func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
     {
@@ -120,7 +120,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         
     }
-   
+    
     
     func tableView(tableView: UITableView!, willDisplayCell cell: UITableViewCell!, forRowAtIndexPath indexPath: NSIndexPath!){
         cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1)
@@ -132,7 +132,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }
     
-  
-
+    
+    
 }
 

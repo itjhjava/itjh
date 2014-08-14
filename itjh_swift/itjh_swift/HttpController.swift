@@ -24,7 +24,7 @@ class HttpController:NSObject{
       
         let articlesJson = JSONValue(data)
         
-        println(articlesJson)
+        //println(articlesJson)
         
         //var nsUrl:NSURL=NSURL(string:url)
         // request:NSURLRequest = NSURLRequest(URL: nsUrl)

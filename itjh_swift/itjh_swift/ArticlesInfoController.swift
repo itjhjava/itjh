@@ -11,13 +11,10 @@ import UIKit
 class ArticlesInfoController: UIViewController {
 
     
-    @IBOutlet weak var artTitle: UILabel!
-    
-    var artTitleString: String = "";
-
-    
-    
+ 
     @IBOutlet weak var artContent: UITextView!
+    
+    var artContentStr:String = ""
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -30,7 +27,8 @@ class ArticlesInfoController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        artTitle?.text=artTitleString
+           
+        artContent?.text = artContentStr
     }
 
     override func didReceiveMemoryWarning() {
