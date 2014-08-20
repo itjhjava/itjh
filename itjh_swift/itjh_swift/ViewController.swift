@@ -32,9 +32,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //数据源
     var tableData:JSONValue?
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         var viewController = self
+              
         var nib = UINib(nibName: mycell, bundle: nil)
         tv?.registerNib(nib, forCellReuseIdentifier: mycell)
         
@@ -46,6 +56,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             object: nil)
         eHttp.delegate = self
         eHttp.onGetArticles("http://203.195.161.238:8080/itjh_mobileServer/ArticlesServer/getArticlesByProgrammingInsights/0/10")
+        
+       
     }
     
     func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int{
@@ -65,10 +77,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //         var cell = tableView?.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as? MyCell
         
         var cell:MyCell = tableView.dequeueReusableCellWithIdentifier(mycell) as MyCell
+        
         var title = tableData?[indexPath.row]["title"].string
         var postDate:NSString = (tableData?[indexPath.row]["postDate"].string)!
+    
         cell.loadItem(title!,postdate:postDate.substringWithRange(NSRange(location: 0,length: 10)))
-        
+       
         return cell;
     }
     
@@ -92,19 +106,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 //        var json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: nil)
 //        
 //        articlesInfo.artContentStr = json.objectForKey("content") as NSString
+        //点击cell行时，背景颜色一闪而过
+          tv?.deselectRowAtIndexPath(indexPath!, animated: false)
         
         let artId = (tableData?[indexPath.row]["id"].string)!
         
         var webView=WebViewController()
         webView.artID = artId
-        
-        
+       
         self.navigationController.pushViewController(webView,animated:true)
-        
+       
         
     }
-    
-    
+
     
     
     func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat
