@@ -11,7 +11,7 @@
 		<result column="popularity" property="popularity" />
 		<result column="comments" property="comments" />
 	</resultMap> 
-	
+	 
 	<select id="getArticlesByProgrammingInsights" resultMap="ArticlesResultMap" parameterType="map">
 		SELECT wpp.id as id, wpp.`post_author` AS author, wpp.`post_title` AS title,wpp.`post_date` AS postDate FROM wp_posts wpp WHERE wpp.`ID` IN (SELECT wptr.`object_id` FROM wp_terms wpt,wp_term_relationships wptr,wp_term_taxonomy wptt
 		WHERE wpt.`term_id` = wptt.`term_id`

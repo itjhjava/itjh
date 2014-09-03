@@ -133,8 +133,8 @@ public class ArticlesServer {
                 articlesJson = gson.toJson(articles);
                 // 把编程感悟的文章列表json存放到memcached中，缓存时间为6个小时
                 if (null != articles && articles.size() != 0) {
-                    memcachedClient.set("articles_ydkf_"+pageNum, 60 * 60 * 6, articlesJson);
-                    logger.info("移动开发列表成功缓存到memcached中,缓存内容是：\n");
+                    //memcachedClient.set("articles_ydkf_"+pageNum, 60 * 60 * 6, articlesJson);
+                    //logger.info("移动开发列表成功缓存到memcached中,缓存内容是：\n");
                     // logger.info(articlesJson);
                 }
             } else {
@@ -181,8 +181,8 @@ public class ArticlesServer {
                 articlesJson = gson.toJson(articles);
                 // 把编程感悟的文章列表json存放到memcached中，缓存时间为6个小时
                 if (null != articles) {
-                    memcachedClient.set(artticsId, 0, articlesJson);
-                    logger.info("文章id:"+artticsId+"成功缓存到memcached中");
+                    //memcachedClient.set(artticsId, 0, articlesJson);
+                    //logger.info("文章id:"+artticsId+"成功缓存到memcached中");
                     // logger.info("缓存内容是：\n"+articlesJson);
                 }
             } else {
