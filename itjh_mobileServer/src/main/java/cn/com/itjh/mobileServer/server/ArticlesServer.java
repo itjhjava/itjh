@@ -195,4 +195,52 @@ public class ArticlesServer {
         }
         return articlesJson;
     }
+    
+    /**
+     * 
+    * 查询最近更新的文章.
+    * <br>查询最近更新的文章
+    * @Copyright vcinema
+    * @Project
+    * @return
+    * @return String 
+    * @throws
+    * @author 宋立君
+    * @date 2014年9月9日 下午2:50:41
+    * @Version 
+    * @JDK version used 8.0
+    * @Modification history none
+    * @Modified by none
+     */
+    @GET
+    @Produces("application/json")
+    @Path("getArticlesByNew/{pageNum}/{showNum}")
+    public String getArticlesByNew(@PathParam(value = "pageNum") int pageNum,@PathParam(value = "showNum") int showNum){
+        String articlesJson = null;
+        try {
+            logger.info("开始获取最新发布的文章列表");
+            // 从缓存中获取编程的json数据
+            String memArticlesJson = memcachedClient.get("articles_new_"+pageNum);
+            if ("".equals(memArticlesJson) || null == memArticlesJson) {
+                pageNum =pageNum*showNum;
+                List<Articles> articles = articlesService.getArticlesByNew(pageNum,showNum);
+                articlesJson = gson.toJson(articles);
+                // 把最新发布的文章列表json存放到memcached中，缓存时间为6个小时
+                if (null != articles && articles.size() != 0) {
+                    //memcachedClient.set("articles_new_"+pageNum, 60 * 60 * 6, articlesJson);
+                    //logger.info("移动开发列表成功缓存到memcached中,缓存内容是：\n");
+                    // logger.info(articlesJson);
+                }
+            } else {
+                logger.info("从缓存中获取“移动开发”文章列表");
+                return memArticlesJson;
+            }
+        } catch (Exception e) {
+            logger.error("获取“移动开发”文章列表失败\n");
+            logger.equals(e.getMessage());
+            e.printStackTrace();
+        }
+        return articlesJson;
+    }
+    
 }

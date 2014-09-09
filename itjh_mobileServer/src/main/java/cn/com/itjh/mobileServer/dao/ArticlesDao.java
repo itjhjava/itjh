@@ -80,4 +80,23 @@ public interface ArticlesDao {
     * @Modified by none
      */
     List<Articles> getArticlesByMoblieDevelopment(Map<String, Integer> pageMap);
+    /**
+     * 
+    * 获取最新发布的文章.
+    * <br>获取最新发布的文章
+    * @Copyright vcinema
+    * @Project
+    * @param pageNum
+    * @param showNum
+    * @return
+    * @return List<Articles> 
+    * @throws
+    * @author 宋立君
+    * @date 2014年9月9日 下午2:52:52
+    * @Version 
+    * @JDK version used 8.0
+    * @Modification history none
+    * @Modified by none
+     */
+    List<Articles> getArticlesByNew(Map<String, Integer> pageMap);
 }

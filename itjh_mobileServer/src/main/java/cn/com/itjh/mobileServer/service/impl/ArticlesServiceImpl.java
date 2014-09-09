@@ -57,4 +57,13 @@ public class ArticlesServiceImpl implements ArticlesService {
         return articles;
     }
 
+    @Override
+    public List<Articles> getArticlesByNew(int pageNum, int showNum) {
+        Map<String, Integer> pageMap = new HashMap<String, Integer>();
+        pageMap.put("pageNum", pageNum);
+        pageMap.put("showNum", showNum);
+        List<Articles> articles = ArticlesDao.getArticlesByNew(pageMap);
+        return articles;
+    }
+
 }

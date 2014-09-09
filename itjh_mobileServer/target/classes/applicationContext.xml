@@ -21,8 +21,8 @@
 			</list>
 		</property>
 	</bean>
-	
-	
+
+
 	<!-- spring管理memcachedClient -->
 	<bean id="memcachedClientBuilder" class="net.rubyeye.xmemcached.XMemcachedClientBuilder">
 		<constructor-arg>
@@ -40,7 +40,7 @@
 		<constructor-arg>
 			<list>
 				<value>${memcached.server1.weight}</value>
-				<!-- <value>${memcached.server2.weight}</value> -->
+			<!-- 	<value>${memcached.server2.weight}</value> -->
 			</list>
 		</constructor-arg>
 		<property name="connectionPoolSize" value="${memcached.connectionPoolSize}" />
@@ -56,6 +56,6 @@
 	</bean>
 	<bean id="memcachedClient" factory-bean="memcachedClientBuilder"
 		factory-method="build" destroy-method="shutdown" />
-	
-	
+
+
 </beans>

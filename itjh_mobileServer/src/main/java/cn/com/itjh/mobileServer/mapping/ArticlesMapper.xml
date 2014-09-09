@@ -16,14 +16,22 @@
 		SELECT wpp.id as id, wpp.`post_author` AS author, wpp.`post_title` AS title,wpp.`post_date` AS postDate FROM wp_posts wpp WHERE wpp.`ID` IN (SELECT wptr.`object_id` FROM wp_terms wpt,wp_term_relationships wptr,wp_term_taxonomy wptt
 		WHERE wpt.`term_id` = wptt.`term_id`
 		AND wptt.`term_taxonomy_id` = wptr.`term_taxonomy_id`
-		AND wpt.`term_id` = 67)  ORDER BY id DESC LIMIT #{pageNum},#{showNum}
+		AND wpt.`term_id` = 67) AND wpp.`post_status` = "publish"  ORDER BY id DESC LIMIT #{pageNum},#{showNum}
 	</select>
+	
+	<select id="getArticlesByNew" resultMap="ArticlesResultMap" parameterType="map">
+		SELECT  wpp.id AS id, wpp.`post_author` AS author, wpp.`post_title` AS title,wpp.`post_date` AS postDate FROM wp_posts wpp WHERE wpp.`ID` IN (SELECT wptr.`object_id` FROM wp_terms wpt,wp_term_relationships wptr,wp_term_taxonomy wptt
+		WHERE wpt.`term_id` = wptt.`term_id`
+		AND wptt.`term_taxonomy_id` = wptr.`term_taxonomy_id`) AND wpp.`post_status` = "publish"  ORDER BY id DESC LIMIT #{pageNum},#{showNum}
+	</select>
+	
+	
 	
 	<select id="getArticlesByMoblieDevelopment" resultMap="ArticlesResultMap" parameterType="map">
 		SELECT wpp.id as id, wpp.`post_author` AS author, wpp.`post_title` AS title,wpp.`post_date` AS postDate FROM wp_posts wpp WHERE wpp.`ID` IN (SELECT wptr.`object_id` FROM wp_terms wpt,wp_term_relationships wptr,wp_term_taxonomy wptt
 		WHERE wpt.`term_id` = wptt.`term_id`
 		AND wptt.`term_taxonomy_id` = wptr.`term_taxonomy_id`
-		AND wpt.`term_id` IN (11,12,13))  ORDER BY id DESC LIMIT #{pageNum},#{showNum}
+		AND wpt.`term_id` IN (11,12,13)) AND wpp.`post_status` = "publish"  ORDER BY id DESC LIMIT #{pageNum},#{showNum}
 	</select>
 	
 	<select id="getArticlesByArtticsId" resultMap="ArticlesResultMap"  parameterType="string">
